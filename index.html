@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Radio Rap Zone - Le meilleur du rap</title>
+    <title>Rap Zone Radio - Le meilleur du rap 24/7</title>
     <style>
         body {
             margin: 0;
@@ -16,27 +16,59 @@
         }
 
         header {
-            background-color: #1e7fcb;
-            padding: 30px 20px;
+            background-color: #00BC2B;
+            padding: 20px;
             font-size: 2.5em;
             font-weight: bold;
             color: #ffffff;
-        }
-
-        .container {
-            margin: 20px auto;
-            width: 100%;
-            max-width: 900px;
             text-align: center;
         }
 
-        .description {
-            margin: 20px 0;
+        .navbar {
+            background-color: #1e1e1e;
+            padding: 15px;
+            display: flex;
+            justify-content: center;
+        }
+
+        .navbar a {
+            color: #ffffff;
+            text-decoration: none;
+            margin: 0 20px;
             font-size: 1.2em;
+            transition: color 0.3s;
+        }
+
+        .navbar a:hover {
+            color: #00BC2B;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .hero {
+            background-color: #1e1e1e;
+            padding: 40px;
+            border-radius: 10px;
+            margin-bottom: 30px;
+        }
+
+        .hero h1 {
+            color: #00BC2B;
+            font-size: 3em;
+        }
+
+        .hero p {
+            font-size: 1.2em;
+            margin-top: 20px;
         }
 
         .player-wrapper {
-            margin: 20px auto;
+            margin: 30px auto;
             width: 100%;
             max-width: 450px;
             background-color: #222;
@@ -52,17 +84,45 @@
 
         .schedule {
             margin-top: 30px;
-            font-size: 1.5em;
-            background-color: #1e1e1e;
             padding: 20px;
+            background-color: #1e1e1e;
             border-radius: 10px;
             box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.5);
         }
 
-        .schedule p {
-            margin: 5px 0;
+        .schedule h2 {
+            color: #00BC2B;
+            font-size: 2em;
+            margin-bottom: 15px;
+        }
+
+        .schedule ul {
+            list-style-type: none;
+            padding: 0;
             font-size: 1.2em;
-            color: #1e7fcb;
+        }
+
+        .schedule ul li {
+            margin: 10px 0;
+        }
+
+        .news {
+            margin-top: 30px;
+            padding: 20px;
+            background-color: #1e1e1e;
+            border-radius: 10px;
+            box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.5);
+        }
+
+        .news h2 {
+            color: #00BC2B;
+            font-size: 2em;
+            margin-bottom: 15px;
+        }
+
+        .news article {
+            margin-bottom: 20px;
+            font-size: 1.1em;
         }
 
         footer {
@@ -71,7 +131,6 @@
             padding: 20px;
             color: #bbb;
             font-size: 1.1em;
-            border-radius: 10px;
         }
 
         .social-icons {
@@ -87,7 +146,7 @@
         }
 
         .social-icons a:hover {
-            color: #1e7fcb;
+            color: #00BC2B;
         }
 
         /* Responsive Design */
@@ -96,12 +155,12 @@
                 font-size: 2em;
             }
 
-            .player-wrapper {
-                width: 90%;
+            .hero h1 {
+                font-size: 2.5em;
             }
 
-            .schedule {
-                font-size: 1.2em;
+            iframe {
+                height: 400px;
             }
         }
     </style>
@@ -112,22 +171,48 @@
         Rap Zone Radio
     </header>
 
+    <nav class="navbar">
+        <a href="#player">Écouter la Radio</a>
+        <a href="#schedule">Programmation</a>
+        <a href="#news">Actualités</a>
+        <a href="#contact">Contact</a>
+    </nav>
+
     <div class="container">
-        <div class="description">
-            <p>Bienvenue sur Rap Zone Radio ! Écoutez le meilleur du rap, tous les jours.</p>
-        </div>
+        <!-- Hero Section -->
+        <section class="hero">
+            <h1>Le meilleur du rap, 24/7</h1>
+            <p>Écoutez les dernières tendances et classiques du rap sur Rap Zone Radio, la référence pour les passionnés de hip-hop. Connectez-vous à tout moment, et vibrez avec nous !</p>
+        </section>
 
-        <div class="player-wrapper">
-            <iframe src="https://player.radioking.io/rap-zone1/?c=%231e7fcb&c2=%23ffffff&f=v&i=1&p=1&s=0&li=1&popup=1&plc=0&h=450&l=275&v=2" frameborder="0"></iframe>
-        </div>
+        <!-- Radio Player -->
+        <section id="player" class="player-wrapper">
+            <iframe src="https://player.radioking.io/rap-zone1/?c=%2300BC2B&c2=%23FFFFFF&f=v&i=0&p=1&s=1&li=1&popup=1&plc=0&h=365&l=275&v=2" frameborder="0"></iframe>
+        </section>
 
-        <div class="schedule">
-            <p>🎶 Horaires de diffusion :</p>
-            <p>⏰ Tous les jours de 20h30 à 22h30</p>
-        </div>
+        <!-- Schedule Section -->
+        <section id="schedule" class="schedule">
+            <h2>🎶 Programmation</h2>
+            <ul>
+                <li><strong>20h00 - 21h00 :</strong> Album Du Jour - Tous les jours</li>
+                <li><strong>21h00 - 22h30 :</strong> Les classiques du rap</li>
+            </ul>
+        </section>
+
+        <!-- News Section -->
+        <section id="news" class="news">
+            <h2>📰 Actualités Rap</h2>
+            <article>
+                <strong>Booba sort un nouveau single !</strong> Le Duc de Boulogne est de retour avec un titre percutant qui fait déjà du bruit sur les réseaux.
+            </article>
+            <article>
+                <strong>Travis Scott en tournée mondiale</strong> : Après le succès de son album *Utopia*, Travis Scott annonce une série de concerts, avec une date à Paris !
+            </article>
+        </section>
     </div>
 
-    <footer>
+    <!-- Footer -->
+    <footer id="contact">
         <p>Suivez-nous sur nos réseaux sociaux :</p>
         <div class="social-icons">
             <a href="https://x.com/tm_grizou" target="_blank"><i class="fab fa-twitter"></i> Twitter</a>
