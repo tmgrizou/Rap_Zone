@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Rap Zone Radio - Le meilleur du rap 24/7</title>
+    <title>Rap Zone Radio - Le Meilleur du Rap 24/7</title>
     <style>
+        /* Style global */
         body {
             margin: 0;
             padding: 0;
@@ -18,10 +20,12 @@
         header {
             background-color: #00BC2B;
             padding: 20px;
-            font-size: 2.5em;
+            font-size: 2.8em;
             font-weight: bold;
             color: #ffffff;
             text-align: center;
+            text-transform: uppercase;
+            letter-spacing: 3px;
         }
 
         .navbar {
@@ -34,46 +38,77 @@
         .navbar a {
             color: #ffffff;
             text-decoration: none;
-            margin: 0 20px;
+            margin: 0 25px;
             font-size: 1.2em;
-            transition: color 0.3s;
+            font-weight: bold;
+            transition: color 0.3s, text-shadow 0.3s;
         }
 
         .navbar a:hover {
             color: #00BC2B;
+            text-shadow: 0px 0px 10px #00BC2B;
         }
 
         .container {
             width: 100%;
-            max-width: 1100px;
+            max-width: 1200px;
             margin: 0 auto;
             padding: 20px;
         }
 
+        /* Section Hero */
         .hero {
-            background-color: #1e1e1e;
-            padding: 40px;
+            background-image: url('https://example.com/hero-image.jpg');
+            background-size: cover;
+            background-position: center;
+            padding: 60px 20px;
             border-radius: 10px;
-            margin-bottom: 30px;
+            box-shadow: 0px 0px 30px rgba(0, 0, 0, 0.7);
+            margin-bottom: 50px;
+            color: #ffffff;
         }
 
         .hero h1 {
-            color: #00BC2B;
-            font-size: 3em;
+            font-size: 4em;
+            margin: 0;
+            letter-spacing: 3px;
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
         }
 
         .hero p {
-            font-size: 1.2em;
-            margin-top: 20px;
+            font-size: 1.5em;
+            margin: 20px 0 40px;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
         }
 
+        .btn-listen {
+            display: inline-block;
+            padding: 15px 30px;
+            font-size: 1.3em;
+            background-color: #00BC2B;
+            color: #ffffff;
+            text-decoration: none;
+            border-radius: 50px;
+            transition: background-color 0.3s, transform 0.3s;
+        }
+
+        .btn-listen:hover {
+            background-color: #ffffff;
+            color: #00BC2B;
+            transform: scale(1.05);
+        }
+
+        /* Lecteur Radio */
         .player-wrapper {
-            margin: 30px auto;
+            margin: 50px auto;
             width: 100%;
-            max-width: 450px;
+            max-width: 500px;
             background-color: #222;
-            border-radius: 10px;
-            box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.7);
+            border-radius: 15px;
+            box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.7);
+            padding: 20px;
         }
 
         iframe {
@@ -82,55 +117,82 @@
             border-radius: 10px;
         }
 
+        /* Section Programmation */
         .schedule {
-            margin-top: 30px;
-            padding: 20px;
+            margin-top: 50px;
+            padding: 30px;
             background-color: #1e1e1e;
             border-radius: 10px;
             box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.5);
+            animation: fadeIn 1s ease-in-out;
         }
 
         .schedule h2 {
             color: #00BC2B;
-            font-size: 2em;
-            margin-bottom: 15px;
+            font-size: 2.5em;
+            margin-bottom: 25px;
         }
 
         .schedule ul {
             list-style-type: none;
             padding: 0;
-            font-size: 1.2em;
+            font-size: 1.3em;
+            line-height: 1.8;
         }
 
         .schedule ul li {
-            margin: 10px 0;
+            margin: 15px 0;
+            padding: 10px;
+            background-color: #2b2b2b;
+            border-radius: 5px;
+            transition: transform 0.3s, background-color 0.3s;
         }
 
+        .schedule ul li:hover {
+            background-color: #00BC2B;
+            color: #ffffff;
+            transform: scale(1.02);
+        }
+
+        /* Section Actualités */
         .news {
-            margin-top: 30px;
-            padding: 20px;
+            margin-top: 50px;
+            padding: 30px;
             background-color: #1e1e1e;
             border-radius: 10px;
             box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.5);
+            animation: fadeIn 1.2s ease-in-out;
         }
 
         .news h2 {
             color: #00BC2B;
-            font-size: 2em;
-            margin-bottom: 15px;
+            font-size: 2.5em;
+            margin-bottom: 25px;
         }
 
         .news article {
-            margin-bottom: 20px;
-            font-size: 1.1em;
+            margin-bottom: 30px;
+            background-color: #2b2b2b;
+            padding: 20px;
+            border-radius: 5px;
+            transition: background-color 0.3s, box-shadow 0.3s;
         }
 
+        .news article:hover {
+            background-color: #00BC2B;
+            color: #ffffff;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+        }
+
+        /* Footer */
         footer {
-            margin-top: 40px;
+            margin-top: 60px;
             background-color: #1e1e1e;
-            padding: 20px;
+            padding: 30px;
             color: #bbb;
-            font-size: 1.1em;
+            font-size: 1.2em;
+            text-align: center;
+            border-top: 3px solid #00BC2B;
         }
 
         .social-icons {
@@ -140,7 +202,7 @@
         .social-icons a {
             margin: 0 15px;
             text-decoration: none;
-            font-size: 1.5em;
+            font-size: 1.8em;
             color: #ffffff;
             transition: color 0.3s;
         }
@@ -149,14 +211,27 @@
             color: #00BC2B;
         }
 
+        /* Animation */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
         /* Responsive Design */
         @media (max-width: 768px) {
             header {
-                font-size: 2em;
+                font-size: 2.2em;
             }
 
             .hero h1 {
-                font-size: 2.5em;
+                font-size: 3em;
             }
 
             iframe {
@@ -165,12 +240,15 @@
         }
     </style>
 </head>
+
 <body>
 
+    <!-- Header -->
     <header>
         Rap Zone Radio
     </header>
 
+    <!-- Navbar -->
     <nav class="navbar">
         <a href="#player">Écouter la Radio</a>
         <a href="#schedule">Programmation</a>
@@ -178,11 +256,13 @@
         <a href="#contact">Contact</a>
     </nav>
 
+    <!-- Main Container -->
     <div class="container">
         <!-- Hero Section -->
         <section class="hero">
             <h1>Le meilleur du rap, 24/7</h1>
-            <p>Écoutez les dernières tendances et classiques du rap sur Rap Zone Radio, la référence pour les passionnés de hip-hop. Connectez-vous à tout moment, et vibrez avec nous !</p>
+            <p>Vivez une expérience musicale unique avec les hits du moment, des classiques indémodables et des découvertes exclusives. Branchez-vous à tout moment pour vibrer avec le meilleur du rap mondial.</p>
+            <a href="#player" class="btn-listen">Écoutez Maintenant</a>
         </section>
 
         <!-- Radio Player -->
@@ -194,32 +274,6 @@
         <section id="schedule" class="schedule">
             <h2>🎶 Programmation</h2>
             <ul>
-                <li><strong>20h00 - 21h00 :</strong> Album Du Jour - Tous les jours</li>
-                <li><strong>21h00 - 22h30 :</strong> Les classiques du rap</li>
-            </ul>
-        </section>
-
-        <!-- News Section -->
-        <section id="news" class="news">
-            <h2>📰 Actualités Rap</h2>
-            <article>
-                <strong>Booba sort un nouveau single !</strong> Le Duc de Boulogne est de retour avec un titre percutant qui fait déjà du bruit sur les réseaux.
-            </article>
-            <article>
-                <strong>Travis Scott en tournée mondiale</strong> : Après le succès de son album *Utopia*, Travis Scott annonce une série de concerts, avec une date à Paris !
-            </article>
-        </section>
-    </div>
-
-    <!-- Footer -->
-    <footer id="contact">
-        <p>Suivez-nous sur nos réseaux sociaux :</p>
-        <div class="social-icons">
-            <a href="https://x.com/tm_grizou" target="_blank"><i class="fab fa-twitter"></i> Twitter</a>
-        </div>
-    </footer>
-
-    <script type="text/javascript" src="https://player.radioking.io/scripts/iframe.bundle.js"></script>
-    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
-</body>
-</html>
+                <li><strong>20h00 - 21h15 :</strong> Émission Rap Zone - Tous les jours</li>
+                <li><strong>21h15 - 22h30 :</strong> Les classiques du rap</li>
+               
