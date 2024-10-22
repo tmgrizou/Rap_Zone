@@ -4,282 +4,97 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Rap Zone Radio - 24/7</title>
+    <title>Rap Zone Radio</title>
     <style>
-        /* Styles de base */
         body {
+            font-family: Arial, sans-serif;
+            background-color: #1e1e1e;
+            color: #ffffff;
             margin: 0;
             padding: 0;
-            font-family: 'Poppins', sans-serif;
-            background-color: #0d0d0d;
-            color: #ffffff;
-            line-height: 1.6;
         }
 
         header {
-            background: linear-gradient(to right, #00BC2B, #0e0e0e);
-            padding: 30px 20px;
-            text-align: center;
-            font-size: 3em;
-            text-transform: uppercase;
-            font-weight: bold;
-            color: #ffffff;
-            letter-spacing: 2px;
-            box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.6);
-        }
-
-        /* Barre de navigation */
-        nav {
-            background-color: #1a1a1a;
-            padding: 15px;
-            text-align: center;
-            box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.5);
-        }
-
-        nav a {
-            color: #ffffff;
-            text-decoration: none;
-            margin: 0 20px;
-            font-size: 1.2em;
-            padding: 10px 15px;
-            border-radius: 50px;
-            transition: background-color 0.3s ease, box-shadow 0.3s ease;
-        }
-
-        nav a:hover {
-            background-color: #00BC2B;
-            box-shadow: 0px 0px 15px rgba(0, 188, 43, 0.8);
-        }
-
-        /* Section principale (Hero) */
-        .hero {
-            background: url('https://example.com/hero-image.jpg') no-repeat center center/cover;
-            height: 100vh;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+            background-color: #1E90FF;
             padding: 20px;
-        }
-
-        .hero h1 {
-            font-size: 4em;
-            margin-bottom: 20px;
-            letter-spacing: 4px;
-        }
-
-        .hero p {
-            font-size: 1.5em;
-            max-width: 700px;
-            margin: 0 auto 40px;
-        }
-
-        .hero .btn-listen {
-            background-color: #00BC2B;
-            color: white;
-            padding: 15px 40px;
-            text-decoration: none;
-            border-radius: 50px;
-            font-size: 1.3em;
-            text-transform: uppercase;
-            transition: background-color 0.3s ease, transform 0.3s ease;
-        }
-
-        .hero .btn-listen:hover {
-            background-color: #ffffff;
-            color: #00BC2B;
-            transform: scale(1.05);
-        }
-
-        /* Lecteur Radio */
-        .player-wrapper {
-            margin: 80px auto;
-            max-width: 800px;
-            padding: 30px;
-            background-color: #1a1a1a;
-            border-radius: 15px;
-            box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.8);
             text-align: center;
+            border-bottom: 5px solid #ffffff;
         }
 
-        .player-wrapper iframe {
-            width: 100%;
-            height: 300px;
+        header h1 {
+            font-size: 36px;
+            margin: 0;
+        }
+
+        .main-content {
+            text-align: center;
+            padding: 30px;
+        }
+
+        .radio-player {
+            margin: 20px auto;
+            background-color: #ffffff;
             border-radius: 10px;
+            width: 300px;
+            padding: 15px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
         }
 
-        /* Section de programmation */
         .schedule {
-            background-color: #101010;
-            padding: 50px 20px;
-            border-radius: 15px;
-            margin: 50px 0;
-            max-width: 1000px;
-            margin-left: auto;
-            margin-right: auto;
-            box-shadow: 0px 0px 30px rgba(0, 0, 0, 0.6);
+            margin: 20px;
+            padding: 20px;
+            background-color: #333333;
+            border-radius: 10px;
+            display: inline-block;
+            text-align: left;
+            box-shadow: 0px 0px 15px rgba(255, 255, 255, 0.2);
         }
 
         .schedule h2 {
-            color: #00BC2B;
-            font-size: 2.5em;
-            margin-bottom: 30px;
-            text-align: center;
+            font-size: 28px;
+            color: #1E90FF;
         }
 
-        .schedule ul {
-            list-style: none;
-            padding: 0;
-            font-size: 1.3em;
-            line-height: 1.8;
-            color: #ffffff;
+        .schedule p {
+            font-size: 18px;
         }
 
-        .schedule ul li {
-            background-color: #1e1e1e;
-            padding: 15px;
-            margin-bottom: 15px;
-            border-radius: 10px;
-            transition: transform 0.3s ease, background-color 0.3s ease;
-        }
-
-        .schedule ul li:hover {
-            background-color: #00BC2B;
-            transform: translateY(-5px);
-        }
-
-        /* Section des actualités */
-        .news {
-            background-color: #1e1e1e;
-            padding: 50px 20px;
-            margin: 50px 0;
-            border-radius: 15px;
-            box-shadow: 0px 0px 30px rgba(0, 0, 0, 0.6);
-        }
-
-        .news h2 {
-            color: #00BC2B;
-            font-size: 2.5em;
-            margin-bottom: 30px;
-            text-align: center;
-        }
-
-        .news article {
-            background-color: #2b2b2b;
-            padding: 20px;
-            margin-bottom: 20px;
-            border-radius: 10px;
-            transition: background-color 0.3s ease, transform 0.3s ease;
-        }
-
-        .news article:hover {
-            background-color: #00BC2B;
-            transform: scale(1.03);
-            color: #ffffff;
-        }
-
-        /* Footer */
         footer {
-            padding: 40px;
-            background-color: #1a1a1a;
-            color: #ccc;
-            text-align: center;
-            font-size: 1.2em;
-            border-top: 3px solid #00BC2B;
-        }
-
-        .social-icons a {
-            margin: 0 15px;
-            font-size: 1.8em;
+            background-color: #1E90FF;
             color: #ffffff;
-            text-decoration: none;
-            transition: color 0.3s ease;
-        }
-
-        .social-icons a:hover {
-            color: #00BC2B;
-        }
-
-        /* Responsivité */
-        @media (max-width: 768px) {
-            header {
-                font-size: 2em;
-            }
-
-            .hero h1 {
-                font-size: 2.5em;
-            }
-
-            .player-wrapper iframe {
-                height: 250px;
-            }
+            text-align: center;
+            padding: 20px;
+            position: relative;
+            bottom: 0;
+            width: 100%;
+            border-top: 5px solid #ffffff;
         }
     </style>
 </head>
 
 <body>
 
-    <!-- Header -->
     <header>
-        Rap Zone Radio
+        <h1>Bienvenue sur Rap Zone Radio</h1>
+        <p>Votre station 100% rap, disponible tous les jours de 20h30 à 22h30</p>
     </header>
 
-    <!-- Navbar -->
-    <nav>
-        <a href="#player">Écouter</a>
-        <a href="#schedule">Programmation</a>
-        <a href="#news">Actualités</a>
-        <a href="#contact">Contact</a>
-    </nav>
-
-    <!-- Hero Section -->
-    <section class="hero">
-        <h1>Bienvenue sur Rap Zone</h1>
-        <p>Découvrez les dernières pépites du rap, des classiques incontournables aux hits actuels, 24h/24 et 7j/7. Branchez-vous pour une expérience inégalée !</p>
-        <a href="#player" class="btn-listen">Écoutez Maintenant</a>
-    </section>
-
-    <!-- Radio Player Section -->
-    <section id="player" class="player-wrapper">
-        <iframe src="https://zeno.fm/player/rap-zone-9pvr" frameborder="0" scrolling="no"></iframe>
-        <p><a href="https://zeno.fm/" target="_blank" style="display: block; font-size: 0.9em; line-height: 10px;">A Zeno.FM Station</a></p>
-    </section>
-
-    <!-- Schedule Section -->
-    <section id="schedule" class="schedule">
-        <h2>Programmation</h2>
-        <ul>
-            <li><strong>20h30 - 22h30 :</strong> Emission Rap Zone (Tous les jours)</li>
-            <li><strong>22h30 - 00h :</strong> Les classiques du rap</li>
-            <li><strong>00h - 06h :</strong> Nuit chill et vibes rap</li>
-            <li><strong>06h - 12h :</strong> Matinée dynamisée avec du rap</li>
-        </ul>
-    </section>
-
-    <!-- News Section -->
-    <section id="news" class="news">
-        <h2>Dernières actualités</h2>
-        <article>
-            <h3>Ninho dévoile un nouveau clip explosif</h3>
-            <p>Ninho continue de régner sur le rap français avec la sortie de son dernier clip qui fait déjà des millions de vues. À voir absolument !</p>
-        </article>
-        <article>
-            <h3>PNL annonce une tournée surprise pour 2024</h3>
-            <p>Après des mois de silence, le duo légendaire PNL revient en force avec une tournée prévue pour l'année prochaine. Les fans sont déjà en ébullition !</p>
-        </article>
-    </section>
-
-    <!-- Footer -->
-    <footer id="contact">
-        <p>Suivez-nous pour ne rien manquer :</p>
-        <div class="social-icons">
-            <a href="https://twitter.com" target="_blank"><i class="fab fa-twitter"></i></a>
-            <a href="https://facebook.com" target="_blank"><i class="fab fa-facebook"></i></a>
-            <a href="https://instagram.com" target="_blank"><i class="fab fa-instagram"></i></a>
+    <div class="main-content">
+        <div class="radio-player">
+            <iframe src="https://player.radioking.io/rap-zone1/?c=%23FFFFFF&c2=%231E90FF&f=v&i=0&p=1&s=1&li=1&popup=1&plc=NaN&h=365&l=undefined&v=2"
+                style="border-radius: 5px; width: 275px; height: 365px;" frameborder="0"></iframe>
+            <script type="text/javascript"
+                src="https://player.radioking.io/scripts/iframe.bundle.js"></script>
         </div>
+
+        <div class="schedule">
+            <h2>Horaires de diffusion</h2>
+            <p><strong>Lundi - Dimanche</strong> : 20h30 - 22h30</p>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 Rap Zone Radio. Tous droits réservés.</p>
     </footer>
 
 </body>
