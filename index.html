@@ -8,6 +8,26 @@
     <title>Rap Zone - Web Radio</title>
         <link rel="icon" type="image/png" href="favicon.png" sizes="32x32">
      </head>
+     <script>
+        document.getElementById("contactForm").addEventListener("submit", function(event) {
+    event.preventDefault(); // Empêche le rechargement de la page
+
+    const formData = new FormData(this);
+
+    fetch("/send-message", {
+        method: "POST",
+        body: formData
+    })
+    .then(response => response.json())
+    .then(data => {
+        document.getElementById("responseMessage").innerText = "Message envoyé ! Merci de nous avoir contactés.";
+    })
+    .catch(error => {
+        document.getElementById("responseMessage").innerText = "Erreur lors de l'envoi. Veuillez réessayer.";
+    });
+});
+
+     </script>
      
     <style>
         /* Styles de base */
@@ -188,45 +208,21 @@
             border-radius: 10px;
             transition: background-color 0.3s ease, transform 0.3s ease;
         }
-        .custom-audio {
-        width: 100%;
-        height: 50px;
-        border-radius: 10px;
-        background-color: #1e1e1e;
-        box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.6);
-        color: white;
-        outline: none;
-        border: none;
-    }
-
-    /* Styles pour les boutons de contrôle (lecture, pause) */
-    .custom-audio::-webkit-media-controls-play-button,
-    .custom-audio::-webkit-media-controls-pause-button {
-        background-color: #017d86;
-        border-radius: 50%;
-        padding: 5px;
-        transition: transform 0.3s ease, background-color 0.3s ease;
-    }
-
-    .custom-audio::-webkit-media-controls-play-button:hover,
-    .custom-audio::-webkit-media-controls-pause-button:hover {
-        transform: scale(1.2);
-        background-color: #ffffff;
+    .propos h4 {
         color: #017d86;
+        text-align: center;
+        font-size: 2.5em;
+        margin-bottom: 30px;
+        
     }
-
-
-
-    /* Barre de volume */
-    .custom-audio::-webkit-media-controls-volume-slider-container {
+    .propos p {
         background-color: #2b2b2b;
+        padding: 20px;
+        margin-bottom: 20px;
+        border-radius: 10px;
+        font-size: 1.2em;
+        text-align: center;
     }
-
-        .news article:hover {
-            background-color: #017d86;
-            transform: scale(1.03);
-            color: #ffffff;
-        }
 
         /* Footer */
         footer {
@@ -264,6 +260,56 @@
                 height: 250px;
             }
         }
+
+        .contact-section {
+    max-width: 1500px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #1a1a1a;
+    border-radius: 10px;
+    color: #ffffff;
+}
+
+.contact-section h2 {
+    text-align: center;
+    color: #017d86;
+}
+
+.contact-section form {
+    display: flex;
+    flex-direction: column;
+}
+
+.contact-section label {
+    margin-top: 10px;
+}
+
+.contact-section input, .contact-section textarea {
+    margin-top: 5px;
+    padding: 10px;
+    border-radius: 5px;
+    border: none;
+    background-color: #333333;
+    color: #ffffff;
+}
+
+.contact-section button {
+    margin-top: 20px;
+    padding: 10px;
+    border-radius: 5px;
+    background-color: #017d86;
+    color: white;
+    font-size: 1em;
+    cursor: pointer;
+    border: none;
+    transition: background-color 0.3s;
+}
+
+.contact-section button:hover {
+    background-color: #00a3b7;
+}
+
+
     </style>
 </head>
 
@@ -271,7 +317,7 @@
 
     <!-- Header -->
     <header>
-     <img src="favicon.png" alt="Logo" class="header-logo"> 
+     <img src="img/favicon.png" alt="Logo" class="header-logo"> 
     </header>
 
     <!-- Navbar -->
@@ -280,7 +326,7 @@
         <a href="#schedule">Programmation</a>
         <a href="#news">Actualités</a>
         <a href="#contact">Contact</a>
-        <a href="#À propos">À propos</a>
+        <a href="#propos">À propos</a>
     </nav>
 
     <!-- Hero Section -->
@@ -315,20 +361,42 @@
         <article>
             <h3>La Mano 1.9 sort un feat de qualité</h3>
             <p>Le rappeur La Mano 1.9 sort un feat avec Gazo, le son est disponible sur Rap Zone !</p>
-            <audio controls class="custom-audio">
-                <source src="audio/Gazo - POP (feat. La Mano 1.9).mp3" type="audio/mp3">
-                Votre navigateur ne supporte pas l'élément audio.
-              </audio>
+        </article>
+        <article>
+            <h3>Ninho et Niska sortent leur projet</h3>
+            <p>Le grand du Rap Français Ninho sort un projet en commun avec Niska intitulé GOAT. <br>
+                Disponible sur toutes les plateformes de streaming
+            </p>
         </article>
     </section>
 
+    <section id="propos" class="propos">
+        <h4>À propos</h4>
+        <p>Rap Zone est une radio basé essentiellement sur le rap. Français et international vous aurez tous type de rap sur cette radio.
+            <br>Cette radio est géré par une seule personne qui fait aussi le site Web et toutes les émissions sur Rap Zone.
+            <br>Pour plus de renseignement contactez moi
+        </p>
+    </section>
+
     <!-- Footer -->
-    <footer id="contact">
-        <p>Suivez-nous pour ne rien manquer :</p>
-        <div class="social-icons">
-            <a href="https://x.com/tm_grizou" target="_blank"><i class="fab fa-twitter"></i></a>
-            <p>A venir</p>
-        </div>
+    <footer id="contact" class="contact-section">
+        <h2>Contactez-nous</h2>
+        <form id="contactForm">
+            <label for="name">Nom :</label>
+            <input type="text" id="name" name="name" required>
+            
+            <label for="email">E-mail :</label>
+            <input type="email" id="email" name="email" required>
+            
+            <label for="subject">Sujet :</label>
+            <input type="text" id="subject" name="subject" required>
+            
+            <label for="message">Message :</label>
+            <textarea id="message" name="message" required></textarea>
+            
+            <button type="submit">Envoyer</button>
+        </form>
+        <div id="responseMessage"></div>
     </footer>
 
 </body>
