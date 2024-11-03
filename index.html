@@ -241,7 +241,7 @@
             }
         }
 
-        .contact-section {
+        .contactForm {
     max-width: 1500px;
     margin: 0 auto;
     padding: 20px;
@@ -250,21 +250,21 @@
     color: #ffffff;
 }
 
-.contact-section h2 {
+.contactForm h2 {
     text-align: center;
     color: #017d86;
 }
 
-.contact-section form {
+.contactForm form {
     display: flex;
     flex-direction: column;
 }
 
-.contact-section label {
+.contactForm label {
     margin-top: 10px;
 }
 
-.contact-section input, .contact-section textarea {
+.contactForm input, .contact-section textarea {
     margin-top: 5px;
     padding: 10px;
     border-radius: 5px;
@@ -273,7 +273,7 @@
     color: #ffffff;
 }
 
-.contact-section button {
+.contactForm button {
     margin-top: 20px;
     padding: 10px;
     border-radius: 5px;
@@ -285,7 +285,7 @@
     transition: background-color 0.3s;
 }
 
-.contact-section button:hover {
+.contactForm button:hover {
     background-color: #00a3b7;
 }
 
@@ -361,7 +361,7 @@
     <!-- Footer -->
     <footer>
         <h2>Contactez-nous</h2>
-        <form id="contactForm" action="send-message.php" method="POST">
+        <form id="contactForm" action="https://formspree.io/f/xdkoeyje" method="POST">
             <label for="name">Nom :</label>
             <input type="text" id="name" name="name" required>
             
