@@ -8,26 +8,6 @@
     <title>Rap Zone - Web Radio</title>
         <link rel="icon" type="image/png" href="favicon.png" sizes="32x32">
      </head>
-     <script>
-        document.getElementById("contactForm").addEventListener("submit", function(event) {
-    event.preventDefault(); // Empêche le rechargement de la page
-
-    const formData = new FormData(this);
-
-    fetch("/send-message", {
-        method: "POST",
-        body: formData
-    })
-    .then(response => response.json())
-    .then(data => {
-        document.getElementById("responseMessage").innerText = "Message envoyé ! Merci de nous avoir contactés.";
-    })
-    .catch(error => {
-        document.getElementById("responseMessage").innerText = "Erreur lors de l'envoi. Veuillez réessayer.";
-    });
-});
-
-     </script>
      
     <style>
         /* Styles de base */
@@ -317,7 +297,7 @@
 
     <!-- Header -->
     <header>
-     <img src="img/favicon.png" alt="Logo" class="header-logo"> 
+     <img src="favicon.png" alt="Logo" class="header-logo"> 
     </header>
 
     <!-- Navbar -->
@@ -379,9 +359,9 @@
     </section>
 
     <!-- Footer -->
-    <footer id="contact" class="contact-section">
+    <footer>
         <h2>Contactez-nous</h2>
-        <form id="contactForm">
+        <form id="contactForm" action="send-message.php" method="POST">
             <label for="name">Nom :</label>
             <input type="text" id="name" name="name" required>
             
