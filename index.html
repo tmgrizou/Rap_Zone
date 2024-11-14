@@ -63,6 +63,10 @@
             box-shadow: 0px 0px 15px #017d86;
         }
 
+        .nav-links {
+    display: flex; /* Affiche les liens en ligne sur grands écrans */
+        }
+
         /* Section principale (Hero) */
         .hero {
             background: url('https://example.com/hero-image.jpg') no-repeat center center/cover;
@@ -228,18 +232,111 @@
 
         /* Responsivité */
         @media (max-width: 768px) {
-            header {
-                font-size: 2em;
-            }
+    /* Réduire la taille de la police pour le titre du header */
+    header {
+        font-size: 1.8em;
+        padding: 15px;
+    }
 
-            .hero h1 {
-                font-size: 2.5em;
-            }
+    /* Ajuster la taille de l'image du logo */
+    .header-logo {
+        width: 150px;
+    }
 
-            .player-wrapper iframe {
-                height: 250px;
-            }
-        }
+    /* Diminuer la taille de la police des liens de la barre de navigation */
+    nav a {
+        padding: 15px;
+        font-size: 1.2em;
+        text-align: center;
+        border-top: 1px solid #333;
+    }
+
+    /* Réduisez la taille de la barre de navigation elle-même */
+    nav {
+        padding: 10px;
+    }
+
+    /* Ajustez l'alignement et le centrage pour éviter que les liens ne soient trop proches les uns des autres */
+    .hero h1 {
+        font-size: 2.5em; /* Adapté pour s'ajuster à l'écran du téléphone */
+    }
+
+    /* Amélioration de l'affichage pour le texte dans la section principale */
+    .hero p {
+        font-size: 1.2em; /* Diminuez la taille du texte */
+        padding: 0 10px; /* Ajoutez un léger padding pour éviter que le texte ne touche les bords */
+    }
+
+    .hero .btn-listen {
+        font-size: 1em;
+        padding: 10px 20px;
+    }
+
+    /* Ajuster la taille du lecteur radio */
+    .player-wrapper iframe {
+        height: 200px;
+    }
+
+    /* Réduire la taille des titres et du texte dans la section de programmation */
+    .schedule h2, .news h2 {
+        font-size: 2em;
+    }
+
+    .schedule ul li, .news article {
+        font-size: 1em;
+        padding: 10px;
+    }
+
+    /* Ajuster les styles de la section "À propos" */
+    .propos h4 {
+        font-size: 2em;
+    }
+    
+    .propos p {
+        font-size: 1em;
+        padding: 15px;
+    }
+
+    /* Diminuer la taille de la police et des marges dans le footer */
+    footer {
+        font-size: 1em;
+        padding: 20px;
+    }
+    
+    .contactForm input, .contactForm textarea {
+        font-size: 1em;
+        padding: 8px;
+    }
+    
+    .contactForm button {
+        font-size: 1em;
+        padding: 10px 20px;
+    }
+
+    .menu-toggle {
+        display: block; /* Affiche le bouton burger */
+        font-size: 2em;
+        cursor: pointer;
+        color: white;
+    }
+    
+    /* Cache les liens de navigation par défaut */
+    .nav-links {
+        display: none;
+        flex-direction: column;
+        background-color: #1a1a1a;
+        position: absolute;
+        top: 60px; /* Ajustez selon votre header */
+        width: 100%;
+        left: 0;
+    }
+
+    /* Affiche les liens lorsque le menu est activé */
+    .nav-links.active {
+        display: flex;
+    }
+}
+
 
         .contactForm {
     max-width: 1500px;
@@ -291,6 +388,14 @@
 
 
     </style>
+
+<script>
+    function toggleMenu() {
+        const navLinks = document.querySelector('.nav-links');
+        navLinks.classList.toggle('active'); // Ajoute ou enlève la classe "active"
+    }
+</script>
+
 </head>
 
 <body>
@@ -302,12 +407,16 @@
 
     <!-- Navbar -->
     <nav>
-        <a href="#player">Écouter</a>
-        <a href="#schedule">Programmation</a>
-        <a href="#news">Actualités</a>
-        <a href="#contact">Contact</a>
-        <a href="#propos">À propos</a>
+        <div class="menu-toggle" onclick="toggleMenu()">&#9776;</div> <!-- Bouton burger -->
+        <div class="nav-links">
+            <a href="#player">Écouter</a>
+            <a href="#schedule">Programmation</a>
+            <a href="#news">Actualités</a>
+            <a href="#contact">Contact</a>
+            <a href="#propos">À propos</a>
+        </div>
     </nav>
+    
 
     <!-- Hero Section -->
     <section class="hero">
