@@ -63,10 +63,6 @@
             box-shadow: 0px 0px 15px #017d86;
         }
 
-        .nav-links {
-    display: flex; /* Affiche les liens en ligne sur grands écrans */
-        }
-
         /* Section principale (Hero) */
         .hero {
             background: url('https://example.com/hero-image.jpg') no-repeat center center/cover;
@@ -245,26 +241,17 @@
 
     /* Diminuer la taille de la police des liens de la barre de navigation */
     nav a {
-        padding: 15px;
-        font-size: 1.2em;
-        text-align: center;
-        border-top: 1px solid #333;
+        font-size: 1em;
+        margin: 0 10px;
     }
 
-    /* Réduisez la taille de la barre de navigation elle-même */
-    nav {
-        padding: 10px;
-    }
-
-    /* Ajustez l'alignement et le centrage pour éviter que les liens ne soient trop proches les uns des autres */
+    /* Réduire la taille des titres et du texte dans la section Hero */
     .hero h1 {
-        font-size: 2.5em; /* Adapté pour s'ajuster à l'écran du téléphone */
+        font-size: 2em;
     }
-
-    /* Amélioration de l'affichage pour le texte dans la section principale */
+    
     .hero p {
-        font-size: 1.2em; /* Diminuez la taille du texte */
-        padding: 0 10px; /* Ajoutez un léger padding pour éviter que le texte ne touche les bords */
+        font-size: 1.2em;
     }
 
     .hero .btn-listen {
@@ -312,30 +299,8 @@
         font-size: 1em;
         padding: 10px 20px;
     }
-
-    .menu-toggle {
-        display: block; /* Affiche le bouton burger */
-        font-size: 2em;
-        cursor: pointer;
-        color: white;
-    }
-    
-    /* Cache les liens de navigation par défaut */
-    .nav-links {
-        display: none;
-        flex-direction: column;
-        background-color: #1a1a1a;
-        position: absolute;
-        top: 60px; /* Ajustez selon votre header */
-        width: 100%;
-        left: 0;
-    }
-
-    /* Affiche les liens lorsque le menu est activé */
-    .nav-links.active {
-        display: flex;
-    }
 }
+
 
 
         .contactForm {
@@ -388,13 +353,6 @@
 
 
     </style>
-
-<script>
-    function toggleMenu() {
-        const navLinks = document.querySelector('.nav-links');
-        navLinks.classList.toggle('active'); // Ajoute ou enlève la classe "active"
-    }
-</script>
 
 </head>
 
